@@ -10,166 +10,153 @@
     <name>coevolution-parent</name>
 
     <properties>
-        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.spring>3.2.7.RELEASE</version.spring>
-        <!-- <version.h2>1.3.175</version.hsqldb> -->
-        <version.hsqldb>1.8.0.10</version.hsqldb>
-        <version.sesame>2.7.3</version.sesame>
-    </properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<org.apache.cxf.version>2.7.7</org.apache.cxf.version>
+		<org.springframework.version>3.2.4.RELEASE</org.springframework.version>
+		<org.eclipse.jetty.version><!-- 9.0.5.v20130815 -->8.1.15.v20140411</org.eclipse.jetty.version>
+	</properties>
 
-    <dependencies>
+	<dependencies>
+	   <dependency>
+	       <groupId>ch.qos.logback</groupId>
+	       <artifactId>logback-classic</artifactId>
+	       <version>1.0.13</version>
+       </dependency>
+		
+	    <dependency>
+            <groupId>com.wordnik</groupId>
+	        <artifactId>swagger-jaxrs_2.10</artifactId>
+	        <version>1.3.0</version>
+	        <exclusions>
+	        	<exclusion>
+	        		 <groupId>javax.ws.rs</groupId>
+                     <artifactId>jsr311-api</artifactId>
+	        	</exclusion>
+	        </exclusions>
+        </dependency>
+	
+	    <dependency>
+      		<groupId>org.apache.cxf</groupId>
+      		<artifactId>cxf-rt-frontend-jaxrs</artifactId>
+      		<version>${org.apache.cxf.version}</version>
+   		</dependency>
+        
+        <dependency>
+ <groupId>org.apache.cxf</groupId>
+ <artifactId>cxf-rt-frontend-jaxws</artifactId>
+ <version>${org.apache.cxf.version}</version>
+</dependency>
+<dependency>
+ <groupId>org.apache.cxf</groupId>
+ <artifactId>cxf-rt-transports-http</artifactId>
+ <version>${org.apache.cxf.version}</version>
+</dependency>
+<dependency>
+ <groupId>org.apache.cxf</groupId>
+ <artifactId>cxf-rt-transports-http</artifactId>
+ <version>${org.apache.cxf.version}</version>
+</dependency>
+<dependency>
+ <groupId>org.apache.cxf</groupId>
+ <artifactId>cxf-rt-ws-security</artifactId>
+ <version>${org.apache.cxf.version}</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.ws.security</groupId>
+    <artifactId>wss4j</artifactId>
+    <version>1.6.0</version>
+</dependency> 
+        
 
-        <dependency>
-            <groupId>com.mangofactory</groupId>
-            <artifactId>swagger-springmvc</artifactId>
-            <version>0.8.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${version.spring}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${version.spring}</version>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- <dependency> -->
-        <!-- <groupId>com.h2database</groupId> -->
-        <!-- <artifactId>h2</artifactId> -->
-        <!-- <version>1.3.175</version> -->
-        <!-- <scope>test</scope> -->
-        <!-- </dependency> -->
-        <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>${version.hsqldb}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.7.5</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openrdf.sesame</groupId>
-            <artifactId>sesame-model</artifactId>
-            <version>${version.sesame}</version>
-        </dependency>
-    </dependencies>
+	    <dependency>
+      		<groupId>javax.inject</groupId>
+      		<artifactId>javax.inject</artifactId>
+      		<version>1</version>
+   		</dependency>
 
-    <build>
-        <plugins>
-            <plugin>
+   		<dependency>
+		  	<groupId>com.fasterxml.jackson.jaxrs</groupId>
+		  	<artifactId>jackson-jaxrs-json-provider</artifactId>
+		  	<version>2.2.2</version>
+		</dependency>
+   		
+   		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+   			<artifactId>jackson-core</artifactId>
+   			<version>2.2.2</version>
+   		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+						
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+			<version>${org.eclipse.jetty.version}</version>		   		   
+		</dependency>
+					
+		<dependency>
+		    <groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-webapp</artifactId>
+			<version>${org.eclipse.jetty.version}</version>		   		   
+		</dependency>
+		<dependency>
+		    <groupId>com.thoughtworks.xstream</groupId>
+		    <artifactId>xstream</artifactId>
+		    <version>1.4.4</version>
+		</dependency>
+<!-- 		<dependency> -->
+<!-- 		    <groupId>net.wimpi</groupId> -->
+<!-- 		    <artifactId>telnetd-x</artifactId> -->
+<!-- 		    <version>2.1.1</version> -->
+<!-- 		</dependency> -->
+<!-- 		<dependency> -->
+<!-- 		    <groupId>org.springframework.boot</groupId> -->
+<!-- 		    <artifactId>spring-boot-starter-data-elasticsearch</artifactId> -->
+<!-- 		    <version>1.1.4.RELEASE</version> -->
+<!-- 		</dependency> -->
+		<dependency>
+		    <groupId>org.openrdf.sesame</groupId>
+		    <artifactId>sesame-model</artifactId>
+		    <version>2.7.4</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.openrdf.sesame</groupId>
+		    <artifactId>sesame-rio-turtle</artifactId>
+		    <version>2.7.3</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+ 			<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
+                <version>3.0</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
-                    <compilerArguments>
-                        <endorseddirs>${endorsed.dir}</endorseddirs>
-                    </compilerArguments>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-            <!-- <plugin> -->
-            <!-- <groupId>org.apache.maven.plugins</groupId> -->
-            <!-- <artifactId>maven-dependency-plugin</artifactId> -->
-            <!-- <version>2.1</version> -->
-            <!-- <executions> -->
-            <!-- <execution> -->
-            <!-- <phase>validate</phase> -->
-            <!-- <goals> -->
-            <!-- <goal>copy</goal> -->
-            <!-- </goals> -->
-            <!-- <configuration> -->
-            <!-- <outputDirectory>${endorsed.dir}</outputDirectory> -->
-            <!-- <silent>true</silent> -->
-            <!-- <artifactItems> -->
-            <!-- <artifactItem> -->
-            <!-- <groupId>javax</groupId> -->
-            <!-- <artifactId>javaee-endorsed-api</artifactId> -->
-            <!-- <version>6.0</version> -->
-            <!-- <type>jar</type> -->
-            <!-- </artifactItem> -->
-            <!-- </artifactItems> -->
-            <!-- </configuration> -->
-            <!-- </execution> -->
-            <!-- </executions> -->
-            <!-- </plugin> -->
-
-            <!--DO NOT FAIL IF YOU CANNOT DELETE A FOLDER !!! -->
-            <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>2.5</version>
-                <configuration>
-                    <failOnError>false</failOnError>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>2.6</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
-            </plugin>
-
-            <!--JETTY PLUGIN -->
-            <!-- <plugin> -->
-            <!-- <groupId>org.mortbay.jetty</groupId> -->
-            <!-- <artifactId>maven-jetty-plugin</artifactId> -->
-            <!-- <version>6.1.26</version> -->
-            <!-- <configuration> -->
-            <!-- <webAppConfig> -->
-            <!-- <contextPath>/geoknow-coevolution</contextPath> -->
-            <!-- <contextPath>/</contextPath> -->
-
-            <!-- </webAppConfig> -->
-            <!-- <scanIntervalSeconds>0</scanIntervalSeconds> -->
-            <!-- <connectors> -->
-            <!-- <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector"> -->
-            <!-- <port>9090</port> -->
-            <!-- <maxIdleTime>60000</maxIdleTime> -->
-            <!-- </connector> -->
-            <!-- </connectors> -->
-            <!-- </configuration> -->
-            <!-- </plugin> -->
-            <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <configuration>
-                    <scanIntervalSeconds>2</scanIntervalSeconds>
-                    <reload>manual</reload>
-                    <connectors>
-                        <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-                            <port>9090</port>
-<!--                             <maxidletime>60000</maxidletime> -->
-                        </connector>
-                    </connectors>
-                    <webApp>
-                        <contextPath>/</contextPath>
-                    </webApp>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
+            </plugin>		
+            
+		</plugins>
+	</build>
+	
     <modules>
         <module>coevolution-core</module>
         <module>coevolution-service</module>
