@@ -76,7 +76,7 @@ public class AppConfig {
                 jaxRsServer().getEndpoint().getEndpointInfo().getAddress()
                 );
         config.setVersion(VERSION);
-        config.setDescription("GeoKnow Generator Co-Evolution Services at "+basePath);
+        config.setDescription("GeoKnow Generator Co-Evolution Services");
         config.setTermsOfServiceUrl("http://generator.geoknow.eu");
         config.setScan(true);
         config.setResourcePackage(Change.class.getPackage().getName());
