@@ -14,6 +14,7 @@
 		<org.apache.cxf.version>2.7.7</org.apache.cxf.version>
 		<org.springframework.version>3.2.4.RELEASE</org.springframework.version>
 		<org.eclipse.jetty.version><!-- 9.0.5.v20130815 -->8.1.15.v20140411</org.eclipse.jetty.version>
+        <org.sesame.version>2.7.4</org.sesame.version>
 	</properties>
 
 	<dependencies>
@@ -133,12 +134,12 @@
 		<dependency>
 		    <groupId>org.openrdf.sesame</groupId>
 		    <artifactId>sesame-model</artifactId>
-		    <version>2.7.4</version>
+		    <version>${org.sesame.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>org.openrdf.sesame</groupId>
 		    <artifactId>sesame-rio-turtle</artifactId>
-		    <version>2.7.3</version>
+		    <version>${org.sesame.version}</version>
 		</dependency>
 	</dependencies>
 

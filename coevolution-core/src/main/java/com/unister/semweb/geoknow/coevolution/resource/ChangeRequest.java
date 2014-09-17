@@ -34,6 +34,8 @@ public class ChangeRequest implements Serializable {
     protected Change[] removals;
     @ApiModelProperty(value = "the statements to be added", required = false)
     protected Change[] additions;
+    @ApiModelProperty(value = "whether the change request has been verified", required = false)
+    protected Boolean verified;
 
     public ChangeRequest() {
 
@@ -141,6 +143,20 @@ public class ChangeRequest implements Serializable {
      */
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    /**
+     * @return the verified
+     */
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    /**
+     * @param verified the verified to set
+     */
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
     }
 
 }

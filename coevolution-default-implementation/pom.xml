@@ -8,4 +8,11 @@
   <artifactId>coevolution-default-implementation</artifactId>
   <version>${parent.version}</version>
   <description>Sample backend implementation of Public-private Co-Evolution components</description>
+  <dependencies>
+      <dependency>
+          <groupId>com.unister.semweb.geoknow</groupId>
+          <artifactId>coevolution-core</artifactId>
+          <version>${parent.version}</version>
+      </dependency>
+  </dependencies>
 </project>
