@@ -3,6 +3,8 @@ package com.unister.semweb.geoknow.coevolution.resource;
 import org.openrdf.model.URI;
 import org.openrdf.model.impl.URIImpl;
 
+import com.unister.semweb.geoknow.coevolution.rdf.Namespace;
+
 /**
  * Constants for wildcards.
  * 
@@ -11,7 +13,7 @@ import org.openrdf.model.impl.URIImpl;
  */
 public final class ChangeConstants {
 
-    public static final String NAMESPACE = "http://ontology.unister.de/geoknow/coevolution/change/constants/";
+    public static final String NAMESPACE = Namespace.CHANGE;
    
     /**
      * A wildcard for removing all statements with any predicate which matches the other constraints in the {@link Change}.

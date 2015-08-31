@@ -1,9 +1,12 @@
 package com.unister.semweb.geoknow.coevolution.resource;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.unister.semweb.geoknow.coevolution.rdf.RdfUtils;
 import com.wordnik.swagger.annotations.ApiModel;
 import com.wordnik.swagger.annotations.ApiModelProperty;
 
@@ -28,7 +31,8 @@ public class ChangeRequest implements Serializable {
     protected String author;
     @ApiModelProperty(value = "the reason for the change request", required = false)
     protected String reason;
-    @ApiModelProperty(value = "the creation date of the change request", required = false)
+    @ApiModelProperty(value = "the creation date of the change request", dataType = "date", required = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = RdfUtils.DATE_FORMAT_PATTERN, timezone = "UTC")
     protected Date createdDate;
     @ApiModelProperty(value = "the statements to be removed", required = false)
     protected Change[] removals;
@@ -36,6 +40,8 @@ public class ChangeRequest implements Serializable {
     protected Change[] additions;
     @ApiModelProperty(value = "whether the change request has been verified", required = false)
     protected Boolean verified;
+    @ApiModelProperty(value = "the context of the change request, i.e., the named graph", required = false)
+    protected String context;
 
     public ChangeRequest() {
 
@@ -48,11 +54,12 @@ public class ChangeRequest implements Serializable {
      * @param removals an array of {@link Change} statements to be removed
      * @param additions an array of {@link Change} statements to be added
      */
-    public ChangeRequest(String subject, Change[] removals, Change[] additions) {
+    public ChangeRequest(String subject, Change[] removals, Change[] additions, String context) {
         super();
         this.subject = subject;
         this.removals = removals;
         this.additions = additions;
+        this.context = context;
     }
 
     /**
@@ -157,6 +164,98 @@ public class ChangeRequest implements Serializable {
      */
     public void setVerified(Boolean verified) {
         this.verified = verified;
+    }
+
+    /**
+     * @return the context
+     */
+    public String getContext() {
+        return context;
+    }
+
+    /**
+     * @param context the context to set
+     */
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return String
+                .format("ChangeRequest [subject=%s, author=%s, reason=%s, createdDate=%s, removals=%s, additions=%s, verified=%s, context=%s]",
+                        subject, author, reason, createdDate, Arrays.toString(removals), Arrays.toString(additions),
+                        verified, context);
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + Arrays.hashCode(additions);
+        result = prime * result + ((author == null) ? 0 : author.hashCode());
+        result = prime * result + ((context == null) ? 0 : context.hashCode());
+        result = prime * result + ((createdDate == null) ? 0 : createdDate.hashCode());
+        result = prime * result + ((reason == null) ? 0 : reason.hashCode());
+        result = prime * result + Arrays.hashCode(removals);
+        result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+        result = prime * result + ((verified == null) ? 0 : verified.hashCode());
+        return result;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        ChangeRequest other = (ChangeRequest) obj;
+        if (!Arrays.equals(additions, other.additions))
+            return false;
+        if (author == null) {
+            if (other.author != null)
+                return false;
+        } else if (!author.equals(other.author))
+            return false;
+        if (context == null) {
+            if (other.context != null)
+                return false;
+        } else if (!context.equals(other.context))
+            return false;
+        if (createdDate == null) {
+            if (other.createdDate != null)
+                return false;
+        } else if (!createdDate.equals(other.createdDate))
+            return false;
+        if (reason == null) {
+            if (other.reason != null)
+                return false;
+        } else if (!reason.equals(other.reason))
+            return false;
+        if (!Arrays.equals(removals, other.removals))
+            return false;
+        if (subject == null) {
+            if (other.subject != null)
+                return false;
+        } else if (!subject.equals(other.subject))
+            return false;
+        if (verified == null) {
+            if (other.verified != null)
+                return false;
+        } else if (!verified.equals(other.verified))
+            return false;
+        return true;
     }
 
 }

@@ -4,10 +4,10 @@
 
     <groupId>com.unister.semweb.geoknow</groupId>
     <artifactId>coevolution-parent</artifactId>
-    <version>0.1</version>
+    <version>0.2.0</version>
     <packaging>pom</packaging>
 
-    <name>coevolution-parent</name>
+    <name>GeoKnow Co-Evolution Service Parent POM</name>
 
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -131,6 +131,7 @@
 <!-- 		    <artifactId>spring-boot-starter-data-elasticsearch</artifactId> -->
 <!-- 		    <version>1.1.4.RELEASE</version> -->
 <!-- 		</dependency> -->
+        <!-- SESAME -->
 		<dependency>
 		    <groupId>org.openrdf.sesame</groupId>
 		    <artifactId>sesame-model</artifactId>
@@ -138,8 +139,42 @@
 		</dependency>
 		<dependency>
 		    <groupId>org.openrdf.sesame</groupId>
-		    <artifactId>sesame-rio-turtle</artifactId>
+		    <artifactId>sesame-repository-http</artifactId>
 		    <version>${org.sesame.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-repository-sail</artifactId>
+            <version>${org.sesame.version}</version>
+        </dependency>
+		<dependency>
+		    <groupId>org.openrdf.sesame</groupId>
+		    <artifactId>sesame-sail-memory</artifactId>
+		    <version>${org.sesame.version}</version>
+		</dependency>
+        <!-- SESAME RIO parsers -->
+        <dependency>
+            <groupId>org.openrdf.sesame</groupId>
+            <artifactId>sesame-rio-turtle</artifactId>
+            <version>${org.sesame.version}</version>
+        </dependency>        
+		<dependency>
+		    <groupId>org.openrdf.sesame</groupId>
+		    <artifactId>sesame-rio-trig</artifactId>
+		    <version>${org.sesame.version}</version>
+		</dependency>
+        <!-- TESTING -->
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.10</version>
+		    <scope>test</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework.version}</version>
+            <scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -160,8 +195,6 @@
 	
     <modules>
         <module>coevolution-core</module>
-        <module>coevolution-service</module>
-        <module>coevolution-default-implementation</module>
     </modules>
 </project>
 
