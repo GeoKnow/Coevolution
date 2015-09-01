@@ -9,11 +9,22 @@ For legal reasons, this repository contains the interfaces (coevolution-core mod
 
 Not applicable.
 
+##Configuration
+
+By default, Coevolution expects a local Virtuoso with a configured GeoKnow Generator (installed via the respective Debian package). If your setup varies, you can specify different properties at /etc/tomcat7/Catalina/localhost/coevolution-service.xml configuration file. By default, this context is configured to be reloadable, so the coevolution webapp should restart after saving changes there.
+
 ##Starting
 
 Copy the WAR file to your local application server's webapp directory. Start the server and see, e.g.,
 
 	http://localhost:8080/coevolution-service/
+	
+##Use
+
+See GeoKnow Deliverable D4.3.1 and D4.3.2 for available services and current implementation.
+
+In addition to the state specified there, since version 0.2.0 Co-Evolution Services provide change tracking functionality during the change application process. The /application/graph resource returns a ChangeTracking instance with basic statistics, including a change application URI denoting a resource at the change tracking graph http://generator.geoknow.eu/resource/changetracking (defined in the Namespace class) which includes further details, e.g., the configured correction context and target graph, process start time, (partially) applied or ignored change requests, additions, and removals. For further details see the ChangeTrackingVocabulary, ChangeTracking, and ChangeTrackingDao classes.
+	
 	
 ##Licence
 
