@@ -24,7 +24,8 @@ Copy the WAR file to your local application server's webapp directory. Start the
 See GeoKnow Deliverable D4.3.1 and D4.3.2 for available services and current implementation.
 
 In addition to the state specified there, since version 0.2.0 Co-Evolution Services provide change tracking functionality during the change application process. The /application/graph resource returns a ChangeTracking instance with basic statistics, including a change application URI denoting a resource at the change tracking graph http://generator.geoknow.eu/resource/changetracking (defined in the Namespace class) which includes further details, e.g., the configured correction context and target graph, process start time, (partially) applied or ignored change requests, additions, and removals. For further details see the ChangeTrackingVocabulary, ChangeTracking, and ChangeTrackingDao classes.
-	
+
+Also, 0.2.0 added a working /sync/diff implementation with full JSON/XML/Turtle support. You can define two graphs and Co-Evolution Sync Service will auto-generate a list of change requests for the differences between these graphs.	
 	
 ##Licence
 
